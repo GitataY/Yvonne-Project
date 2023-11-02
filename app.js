@@ -68,6 +68,28 @@ menu.state("end", {
     menu.end("Thank you for your donation");
   },
 });
+//------------------------------------------------Receive------------
+menu.state("Receive", {
+  run: () => {
+    menu.con("What is your name?");
+  },
+  next: {
+    "*[a-zA-Z]+": "Receive.food",
+  },
+});
+menu.state("Receive.food", {
+  run: () => {
+    let name = menu.val;
+    menu.con(`${name} what would you like to Receive?`);
+  },
+});
+menu.state("end", {
+  run: () => {
+    let donations = menu.val;
+    userData.donations = donations;
+    menu.end("I hope you bless someone with a smile today.");
+  },
+});
 //------------------------------------------------------------Quit
 menu.state("quit", {
   run: () => {
