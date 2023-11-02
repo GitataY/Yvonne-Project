@@ -37,12 +37,13 @@ let menu = new UssdMenu();
 let userData = {};
 menu.startState({
   run: () => {
-    menu.con("Welcome. Choose option:" + "\n1. donate" + "\n2. quit");
+    menu.con("Welcome. Choose option:" + "\n1. donate" + "\n2. Recive" + "\n3. quit");
   },
   // next object links to next state based on user input
   next: {
     1: "donate",
-    2: "quit",
+    2: "Receive",
+    3: "quit",
   },
 });
 //----------------------------------------------------DONATE---------------
